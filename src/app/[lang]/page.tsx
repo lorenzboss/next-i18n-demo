@@ -1,5 +1,5 @@
-import { getDictionary } from "./dictionaries";
 import Link from "next/link";
+import { getDictionary } from "./dictionaries";
 
 export async function generateMetadata({
   params: { lang },
@@ -9,8 +9,8 @@ export async function generateMetadata({
   const t = await getDictionary(lang);
 
   return {
-    title: t.page.title,
-    description: t.page.desc,
+    //title: t.page.title,
+    //description: t.page.desc,
   };
 }
 
@@ -21,16 +21,32 @@ export default async function Home({
 }) {
   const t = await getDictionary(lang);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="space-x-2">
         <Link href="/en">English</Link>
         <span>|</span>
-        <Link href="/zh">Chinese/中文</Link>
+        <Link href="/de">Deutsch</Link>
+        <span>|</span>
+        <Link href="/fr">Français</Link>
+        <span>|</span>
+        <Link href="/it">Italiano</Link>
+        <span>|</span>
+        <Link href="/es">Español</Link>
       </div>
-      <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-        {t.home.title}
-      </p>
-      {t.home.desc}
-    </main>
+      <main className="flex flex-col items-center justify-between p-24">
+        <h1 className="mb-20 text-4xl font-bold tracking-wider">
+          {t.home.title}
+        </h1>
+        <p className="mb-20 text-2xl uppercase tracking-wide">
+          {t.home.description}
+        </p>
+        <p
+          style={{ whiteSpace: "pre-wrap" }}
+          className="text-center text-xl leading-relaxed -tracking-wide text-gray-300"
+        >
+          {t.home.comment}
+        </p>
+      </main>
+    </div>
   );
 }

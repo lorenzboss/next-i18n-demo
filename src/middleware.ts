@@ -1,8 +1,8 @@
-import Negotiator from "negotiator";
 import { match } from "@formatjs/intl-localematcher";
+import Negotiator from "negotiator";
 import { NextRequest, NextResponse } from "next/server";
 
-const locales = ["en", "zh"];
+const locales = ["en", "de", "fr", "it", "es"];
 const defaultLocale = "en";
 const cookieName = "i18nlang";
 
@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
   const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
   if (pathnameHasLocale) return;

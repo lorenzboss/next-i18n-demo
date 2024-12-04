@@ -1,0 +1,7 @@
+{
+  "home": {
+    "title": "Hola, soy Lorenz Boss",
+    "description": "Esta es una demostración de un sitio web Next.js i18n",
+    "comment": "¡Espero que te guste!\nSi quieres ver el código, consulta el repositorio de GitHub.\nEste mensaje se traduce en el navegador, actualmente en español.\nY si tienes comentarios, no dudes en abrir un problema o una solicitud de extracción."
+  }
+}

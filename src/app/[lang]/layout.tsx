@@ -14,7 +14,13 @@ interface LangParams {
 }
 
 export async function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "zh" }];
+  return [
+    { lang: "en" },
+    { lang: "de" },
+    { lang: "fr" },
+    { lang: "it" },
+    { lang: "es" },
+  ];
 }
 
 export default function RootLayout({
